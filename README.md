@@ -39,3 +39,20 @@ Run pytest.
 
 ## Production considerations
 This learning project does not include authentication or per-user dataset isolation. Before production, add auth, quotas, async processing for large files, malware scanning, observability, and data retention policies. Uploaded filenames are metadata only and never used as filesystem paths.
+
+
+## Folder tree
+data-analytics-api/
+|-- app/
+|   |-- api/                FastAPI route handlers
+|   |-- core/               Settings and database session
+|   |-- schemas/            Pydantic response schemas
+|   |-- services/           CSV ingestion and Pandas analysis
+|   |-- main.py             Application entry point
+|   |-- models.py           SQLAlchemy dataset model
+|-- tests/                  API tests and isolated test database
+|-- sample_data/            Example CSV dataset
+|-- .github/workflows/      Continuous integration
+|-- .env.example            Local configuration template
+|-- requirements.txt        Python dependencies
+|-- README.md               Project and API documentation
