@@ -17,42 +17,41 @@ Python 3.11+, FastAPI, Uvicorn, Pandas, SQLAlchemy 2, SQLite/PostgreSQL, pytest,
 
 ## Exact repository structure
 
-This tree matches the files currently committed to GitHub:
+This tree matches the files currently committed to GitHub. Inline comments explain the purpose of each folder and file.
 
-~~~text
+```text
 data-analytics-api/
-├── .github/
-│   └── workflows/
-│       └── tests.yml
-├── app/
-│   ├── __init__.py
-│   ├── api/
-│   │   ├── __init__.py
-│   │   └── routes.py
-│   ├── core/
-│   │   ├── __init__.py
-│   │   ├── config.py
-│   │   └── database.py
-│   ├── schemas/
-│   │   ├── __init__.py
-│   │   └── datasets.py
-│   ├── services/
-│   │   ├── __init__.py
-│   │   └── analytics.py
-│   ├── main.py
-│   └── models.py
-├── sample_data/
-│   └── sales.csv
-├── tests/
-│   ├── conftest.py
-│   └── test_api.py
-├── .env.example
-├── .gitignore
-├── LICENSE
-├── README.md
-└── requirements.txt
-~~~
-
+├── .env.example  # Template for environment variables
+├── .github/  # GitHub automation and repository workflows
+│   └── workflows/  # Continuous integration workflows
+│       └── tests.yml  # Runs automated tests on pushes and pull requests
+├── .gitignore  # Files Git should ignore
+├── LICENSE  # Project license
+├── README.md  # Project overview, setup guide and API documentation
+├── app/  # Main FastAPI application package
+│   ├── __init__.py  # Marks app as a Python package
+│   ├── api/  # HTTP API layer
+│   │   ├── __init__.py  # Marks api as a Python package
+│   │   └── routes.py  # Defines dataset upload, listing, preview and summary endpoints
+│   ├── core/  # Shared configuration and infrastructure
+│   │   ├── __init__.py  # Marks core as a Python package
+│   │   ├── config.py  # Loads application settings and environment variables
+│   │   └── database.py  # Configures SQLAlchemy engine and sessions
+│   ├── main.py  # Creates the FastAPI application and startup routes
+│   ├── models.py  # Defines SQLAlchemy database models
+│   ├── schemas/  # Pydantic request and response schemas
+│   │   ├── __init__.py  # Marks schemas as a Python package
+│   │   └── datasets.py  # Defines dataset validation and response schemas
+│   └── services/  # Reusable business and data-processing logic
+│       ├── __init__.py  # Marks services as a Python package
+│       └── analytics.py  # Validates CSV data and calculates Pandas statistics
+├── requirements.txt  # Lists required Python packages
+├── sample_data/  # Example input files
+│   └── sales.csv  # Sample sales dataset for upload and analysis
+└── tests/  # Automated API tests
+    ├── conftest.py  # Configures shared fixtures and an isolated test database
+    └── test_api.py  # Tests health, upload, preview, summary and error responses
+```
 ## Step-by-step: run locally (Windows)
 
 ### 1. Install Python
